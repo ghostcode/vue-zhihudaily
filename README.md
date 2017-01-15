@@ -1,6 +1,6 @@
 # zhuihudaily
 
-> A Vue.js project
+> A Vue.js project for zhuihu-daily
 
 ## Build Setup
 
