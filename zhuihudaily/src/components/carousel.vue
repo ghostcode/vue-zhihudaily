@@ -2,7 +2,7 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 16:13:08
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-15 22:17:03
+* @Last Modified time: 2017-01-16 09:44:25
 */
 <template>
     <div class="carousel-container">
@@ -34,7 +34,6 @@
             }
         },
         mounted(){
-            console.log(this.items)
             this.animate();
         },
         methods:{
