@@ -2,11 +2,26 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 13:47:56
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-17 10:10:52
+* @Last Modified time: 2017-01-18 12:06:20
 */
 <template>
     <div class="z-home">
-        <toast type="loading">加载中...</toast>
+        <div class="weui-tab">
+            <div class="weui-tab__panel">
+                <router-view></router-view>
+            </div>
+            <div class="weui-tabbar">
+                <router-link :to='{name:"list"}' tag='li' class="weui-tabbar__item">
+                    <a class="weui-tabbar__label">首页</a>
+                </router-link>
+                <router-link :to='{name:"theme"}' tag='li' class="weui-tabbar__item">
+                    <a class="weui-tabbar__label">主题</a>
+                </router-link>
+                <!-- <router-link :to='{name:"my"}' tag='li' class="weui-tabbar__item">
+                    <a class="weui-tabbar__label">我</a>
+                </router-link> -->
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -25,7 +40,7 @@
         },
         mounted(){
             setTimeout(()=>{
-                this.$router.push({name:'list'});
+                // this.$router.push({name:'list'});
             },1000)
         }
     }
@@ -34,13 +49,28 @@
     html{
         height:100%;
     }
+    body{
+        min-height: 100%;
+    }
     .z-home{
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+    }
+    .weui-tabbar .weui-tabbar__item a{
+        display: block;
+        line-height: 53px;
+        height:53px;
+    }
+/*    .z-home{
         height:600px;
         background-image: url('../assets/zhihudaily.png');
         background-repeat: no-repeat;
         background-size:cover;
         background-position: center;
         min-height: 100%;
-    }
+    }*/
 
 </style>

@@ -2,7 +2,7 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 13:46:12
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-15 17:39:08
+* @Last Modified time: 2017-01-18 11:40:07
 */
 
 'use strict';
@@ -25,12 +25,24 @@ const Detail = resolve => {
     })
 }
 
-const routers = [
-    {
-        path: '/',
-        name: 'home',
-        component: Home
-    },
+const Theme = resolve => {
+    require.ensure(['./views/theme.vue'], () => {
+        resolve(require('./views/theme.vue'))
+    })
+}
+
+const ThemeList = resolve => {
+    require.ensure(['./views/theme-list.vue'], () => {
+        resolve(require('./views/theme-list.vue'))
+    })
+}
+
+const routes = [
+    // {
+    //     path: '/',
+    //     name: 'home',
+    //     component: Home
+    // },
     {
         path: '/list',
         name: 'list',
@@ -40,7 +52,17 @@ const routers = [
         path: '/detail/:id',
         name: 'detail',
         component: Detail
+    },
+    {
+        path: '/theme',
+        name: 'theme',
+        component: Theme
+    },
+    {
+        path: '/theme/list/:id',
+        name: 'themelist',
+        component: ThemeList
     }
 ]
 
-export default routers
+export default routes
