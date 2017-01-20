@@ -1,12 +1,11 @@
 /*
 * @Author: zhuxy
-* @Date:   2017-01-15 13:48:19
+* @Date:   2017-01-19 22:44:44
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-19 22:44:58
+* @Last Modified time: 2017-01-19 23:10:26
 */
 <template>
     <div class="z-mod-index">
-        <carousel :items='topstories'></carousel>
         <ul class="weui-cells z-mod-list">
             <router-link :to="{name:'detail',params:{id:item.id} }" tag='li' v-for="item in stories" class="weui-cell weui-cell_access z-list-item">
                 <div class="weui-cell__hd">
@@ -33,24 +32,24 @@
         },
         data(){
             return {
-                topstories:[],
                 stories:[]
             }
         },
         created(){
-            let self = this;
-            console.log('list')
+            let self = this,
+                date = new Date();
+
+            self.dateYYMMDD = utils.getYYMMDD(date);
             self.getStories();
         },
         methods:{
             getStories(){
                 let self = this,
-                    url = api.getUrl('list');
+                    url = `${api.getUrl('before')}/${self.dateYYMMDD}`;
 
                 utils.http.get(url)
                     .then(function(res){
                         self.stories = res.data && res.data.stories
-                        self.topstories = res.data && res.data.top_stories
                     })
                     .catch(function(err){
 

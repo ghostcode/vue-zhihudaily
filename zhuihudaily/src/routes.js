@@ -2,7 +2,7 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 13:46:12
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-18 11:40:07
+* @Last Modified time: 2017-01-19 22:44:29
 */
 
 'use strict';
@@ -37,6 +37,12 @@ const ThemeList = resolve => {
     })
 }
 
+const Before = resolve => {
+    require.ensure(['./views/before.vue'], () => {
+        resolve(require('./views/before.vue'))
+    })
+}
+
 const routes = [
     // {
     //     path: '/',
@@ -62,6 +68,11 @@ const routes = [
         path: '/theme/list/:id',
         name: 'themelist',
         component: ThemeList
+    },
+    {
+        path: '/before',
+        name: 'before',
+        component: Before
     }
 ]
 

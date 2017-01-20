@@ -2,7 +2,7 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 13:47:56
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-18 12:06:20
+* @Last Modified time: 2017-01-19 22:43:17
 */
 <template>
     <div class="z-home">
@@ -12,7 +12,10 @@
             </div>
             <div class="weui-tabbar">
                 <router-link :to='{name:"list"}' tag='li' class="weui-tabbar__item">
-                    <a class="weui-tabbar__label">首页</a>
+                    <a class="weui-tabbar__label">最新</a>
+                </router-link>
+                <router-link :to='{name:"before"}' tag='li' class="weui-tabbar__item">
+                    <a class="weui-tabbar__label">往期</a>
                 </router-link>
                 <router-link :to='{name:"theme"}' tag='li' class="weui-tabbar__item">
                     <a class="weui-tabbar__label">主题</a>
