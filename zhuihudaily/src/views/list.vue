@@ -2,7 +2,7 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 13:48:19
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-19 22:44:58
+* @Last Modified time: 2017-01-21 22:12:39
 */
 <template>
     <div class="z-mod-index">
@@ -39,7 +39,6 @@
         },
         created(){
             let self = this;
-            console.log('list')
             self.getStories();
         },
         methods:{

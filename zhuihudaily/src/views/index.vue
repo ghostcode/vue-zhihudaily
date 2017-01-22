@@ -2,13 +2,14 @@
 * @Author: zhuxy
 * @Date:   2017-01-15 13:47:56
 * @Last Modified by:   zhuxy
-* @Last Modified time: 2017-01-19 22:43:17
+* @Last Modified time: 2017-01-21 22:59:36
 */
 <template>
     <div class="z-home">
         <div class="weui-tab">
             <div class="weui-tab__panel">
                 <router-view></router-view>
+                <loadmore @scroll-bottom="load"></loadmore>
             </div>
             <div class="weui-tabbar">
                 <router-link :to='{name:"list"}' tag='li' class="weui-tabbar__item">
@@ -29,10 +30,12 @@
 </template>
 <script>
     import toast from '../components/toast.vue';
+    import loadmore from '../components/loadmore.vue';
 
     export default {
         components:{
-            toast
+            toast,
+            loadmore
         },
         data(){
             return {
@@ -40,11 +43,17 @@
             }
         },
         created(){
+
         },
         mounted(){
             setTimeout(()=>{
                 // this.$router.push({name:'list'});
             },1000)
+        },
+        methods:{
+            load(args){
+                console.log(args)
+            }
         }
     }
 </script>
@@ -64,9 +73,10 @@
     }
     .weui-tabbar .weui-tabbar__item a{
         display: block;
-        line-height: 53px;
-        height:53px;
+        line-height: 45px;
+        height:45px;
     }
+
 /*    .z-home{
         height:600px;
         background-image: url('../assets/zhihudaily.png');
